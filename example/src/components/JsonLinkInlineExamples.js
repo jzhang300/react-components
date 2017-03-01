@@ -1,5 +1,5 @@
 import React from 'react';
-import JsonLink from '../../../src/components/JsonLink';
+import JsonLinkInline from '../../../src/components/JsonLinkInline';
 import Code from '../../../src/components/Code';
 
 const initialJson = {
@@ -28,37 +28,43 @@ export default React.createClass({
   getInitialState() {
     return {
       json: initialJson,
+      showJson: false,
     };
+  },
+
+  onExit() {
+    this.setState({
+      showJson: false,
+    });
+  },
+
+  onShow() {
+    this.setState({
+      showJson: !this.state.showJson,
+    });
   },
 
   render() {
     return (
-      <section id="JsonLink">
-        <h2 className="base--h2">JsonLink</h2>
+      <section id="JsonLinkInline">
+        <h2 className="base--h2">JsonLinkInline</h2>
         <div className="row">
-          <div className="block-example">
-            <JsonLink
-              json={this.state.json}
-            />
-            <p className="base--p">You can edit the JSON below. When you click on the JSON link, this JSON code below will be displayed in a new tab.</p>
-            <pre
-              className="base--pre"
-              style={{ whiteSpace: 'pre', marginTop: '1rem' }}
-              contentEditable
-              onInput={(e) => {
-                this.setState({
-                  json: e.target.textContent,
-                });
-              }}
-            >
-{`${JSON.stringify(initialJson, 0, 1)}`}
-            </pre>
-          </div>
-          <div className="block-code">
-            <Code type="jsx">
-{'<JsonLink json={{ a JSON object or string }} />'}
-            </Code>
-          </div>
+          <JsonLinkInline
+            json={this.state.json}
+            showJson={this.state.showJson}
+            onExit={this.onExit}
+            onShow={this.onShow}
+            description={<p>This is a description for the JsonLinkInline component.</p>}
+          />
+          <Code type="jsx">
+{`<JsonLinkInline
+  json={{ some json object or string }}
+  showJson={ boolean to toggle json display }
+  onExit={ callback function for when exit button is clicked }
+  onShow={ callback function for when json link is clicked }
+  description={<p>This is a description for the JsonLinkInline component.</p>}
+/>`}
+          </Code>
         </div>
       </section>
     );
