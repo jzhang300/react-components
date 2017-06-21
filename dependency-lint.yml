@@ -19,8 +19,13 @@ executedModules:
     root: ''
 
 ignoreErrors:
-  missing: []
-  shouldBeDependency: []
+  missing:
+    - react-dom
+    - object-assign
+    - fbjs
+    - _process
+  shouldBeDependency:
+    - react-dom
   shouldBeDevDependency: []
   unused:
     # babel plugins & presets

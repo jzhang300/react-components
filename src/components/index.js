@@ -4,6 +4,7 @@ export Header from './Header';
 export Jumbotron from './Jumbotron';
 
 // Elements
+export Bar from './Bar';
 export Tabs from './Tabs';
 export Pane from './Tabs/Pane';
 export TabsPane from './Tabs/Pane';
@@ -13,6 +14,7 @@ export Alert from './Alert';
 export Modal from './Modal';
 export ArrowBox from './ArrowBox';
 export JsonLink from './JsonLink';
+export JsonLinkInline from './JsonLinkInline';
 export InputWithButton from './InputWithButton';
 
 export Colors from './Colors';
