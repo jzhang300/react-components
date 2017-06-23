@@ -7,3 +7,4 @@ gh-pages
 example/build
 example/images
 dist/
+package-lock.json
